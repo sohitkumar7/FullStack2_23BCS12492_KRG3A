@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth } from "../context/AuthContext.jsx";
+import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -14,10 +14,9 @@ const Login = () => {
   return (
     <div>
       <h2>Login Page</h2>
-      <button onClick={handleLogin}>Login to Ecotrack</button>
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
 };
 
 export default Login;
-
