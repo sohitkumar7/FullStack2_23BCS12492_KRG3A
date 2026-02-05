@@ -1,21 +1,35 @@
-import {Link,Outlet} from "react-router-dom"
+import React, { memo } from 'react';
+import { Link, Outlet } from "react-router-dom";
+import { Box, Tabs, Tab, Container, Paper, Typography } from '@mui/material';
 
-const DashboardLayout = () => {
+const DashboardLayout = memo(() => {
   return (
-    <div style={{padding : "1rem"}}>
-      <h3>
-        DashBoard
-      </h3>
+    <Container maxWidth="lg" sx={{ mt: 4 }}>
+      <Paper elevation={3} sx={{ p: 3 }}>
+        <Typography variant="h4" gutterBottom color="primary">
+          Dashboard
+        </Typography>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 2 }}>
+          <Tabs aria-label="dashboard tabs">
+            <Tab
+              label="Summary"
+              component={Link}
+              to="summary"
+            />
+            <Tab
+              label="Analytics"
+              component={Link}
+              to="analytics"
+            />
+          </Tabs>
+        </Box>
+        <Outlet />
+      </Paper>
+    </Container>
+  );
+});
 
-    <nav>
-      <Link to ="summary" > summary
-      </Link> | {" "}
-      <Link to= "analytics" >Anayists</Link>
-    </nav>
-    <hr />
-    <Outlet/>
-    </div>
-  )
-}
+DashboardLayout.displayName = 'DashboardLayout';
 
 export default DashboardLayout;
+
